@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+
+  <!-- ================= META ================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nash Tax & Bookkeeping — Mock (White & Gold)</title>
+
+  <!-- ================= FONTS ================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- ================= STYLES ================= -->
+  <link rel="stylesheet" href="assests/css/style.css" />
+  <link rel="stylesheet" href="assests/css/navbar.css">
+
+</head>
+<div id="navbarMount"></div>
+<script src="assests/js/navbar.js"></script>
+<body id="top">
+
+  <!-- ================= CHAT WIDGET ================= -->
+  <div class="chatWidget" id="chatWidget" aria-live="polite">
+    <button class="chatFab" id="chatFab" aria-label="Open chat">💬</button>
+
+    <div class="chatBox" id="chatBox" role="dialog" aria-label="Chat support">
+      <div class="chatHeader">
+        <div class="chatHeader__title">
+          <div class="chatHeader__dot"></div>
+          <div>
+            <div class="chatHeader__name">Nash Support</div>
+            <div class="chatHeader__sub">Typically replies within minutes</div>
+          </div>
+        </div>
+        <button class="chatClose" id="chatClose" aria-label="Close chat">✕</button>
+      </div>
+
+      <div class="chatBody" id="chatBody">
+        <div class="msg msg--bot">
+          Hi! 👋 How can we help today?
+          <div class="chips">
+            <button class="chip" data-chip="Bookkeeping">Bookkeeping</button>
+            <button class="chip" data-chip="Tax Filing">Tax Filing</button>
+            <button class="chip" data-chip="Pricing">Pricing</button>
+          </div>
+        </div>
+      </div>
+
+      <form class="chatForm" id="chatForm">
+        <input
+          class="chatInput"
+          id="chatInput"
+          type="text"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+        <button class="chatSend" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= TOP STRIP ================= -->
+  <div class="topStrip">
+    <div class="container topStrip__inner">
+      <div class="topStrip__left">
+        <span class="spark"></span>
+        <span>Premium tax &amp; bookkeeping support • Dallas, TX • Remote-friendly</span>
+      </div>
+      <div class="topStrip__right">
+        <a href="tel:+19144134870">+1 (914) 413 4870</a>
+        <span class="sep">•</span>
+        <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+
+
+
+  <!-- ================= HERO ================= -->
+  <section class="eventHero" id="hero">
+    <div class="eventHero__bg"></div>
+
+    <div class="eventHero__motion eventHero__motion--shimmer"></div>
+    <div class="eventHero__motion eventHero__motion--streaks"></div>
+
+    <span class="eventHero__confetti eventHero__confetti--1"></span>
+    <span class="eventHero__confetti eventHero__confetti--2"></span>
+    <span class="eventHero__confetti eventHero__confetti--3"></span>
+
+    <span class="eventHero__ribbon eventHero__ribbon--1"></span>
+    <span class="eventHero__ribbon eventHero__ribbon--2"></span>
+
+    <div class="container eventHero__inner">
+      <div class="eventHero__left">
+        <p class="eventHero__kicker">WELCOME TO NASH TAX &amp; BOOKKEEPING</p>
+
+        <div class="eventHero__headline">
+          <div class="eventHero__stack">
+            <span>Premium</span>
+            <span class="isGold">Tax &amp;</span>
+            <span>Bookkeeping</span>
+          </div>
+
+          <p class="eventHero__sub">
+            Clean reporting, secure handling, and a stress-free process for individuals and small businesses.
+          </p>
+        </div>
+
+        <div class="eventHero__actions">
+          <a class="btn btn--primary" href="contact.html">Get Free Consultation</a>
+          <a class="btn btn--ghost" href="service.html">Explore Services</a>
+        </div>
+
+        <div class="eventHero__socialRow">
+          <a class="eventIcon" href="#" aria-label="Instagram">◎</a>
+          <a class="eventIcon" href="#" aria-label="Facebook">f</a>
+          <a class="eventIcon" href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+
+      <div class="eventHero__right">
+        <div class="eventHero__circleWrap">
+          <div class="eventHero__circle">
+            <img src="assests/img/herooo.jpg" alt="Tax consultation" />
+          </div>
+
+          <div class="eventBadge eventBadge--label">
+            <span class="eventBadge__mini">SPECIALIST</span>
+            <span class="eventBadge__big">TAX &amp; BOOKKEEPING</span>
+          </div>
+
+          <div class="eventBadge eventBadge--time">
+            <div class="eventBadge__top">AVAILABLE</div>
+            <div class="eventBadge__bottom">9AM–6PM</div>
+          </div>
+
+          <div class="eventHero__dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="eventHero__socialRail">
+          <a class="eventRailIcon" href="#" aria-label="Facebook">f</a>
+          <a class="eventRailIcon" href="#" aria-label="Instagram">◎</a>
+          <a class="eventRailIcon" href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2 class="title">Your partner for bookkeeping &amp; tax relief</h2>
+          <p class="muted">Polished service cards with real imagery + clear benefits.</p>
+        </div>
+        <a class="btn btn--ghost" href="service.html">Services</a>
+      </div>
+
+      <div class="serviceGrid">
+        <article class="serviceCard">
+          <div class="serviceCard__media">
+            <img src="assests/img/service-1.jpg" alt="Individual taxes" />
+          </div>
+          <div class="serviceCard__body">
+            <h3>Individual Taxes</h3>
+            <p>Maximize returns and file with confidence using a clean, guided process.</p>
+            <ul>
+              <li>Credits &amp; deductions</li>
+              <li>Accurate filing</li>
+              <li>Year-round support</li>
+            </ul>
+            <a class="link" href="individual.html">Learn more →</a>
+          </div>
+        </article>
+
+        <article class="serviceCard">
+          <div class="serviceCard__media">
+            <img src="assests/img/service-2.jpg" alt="Business taxes" />
+          </div>
+          <div class="serviceCard__body">
+            <h3>Business Taxes</h3>
+            <p>Tax planning + filing that protects your cash flow and reduces risk.</p>
+            <ul>
+              <li>Quarterly strategy</li>
+              <li>Expense tracking</li>
+              <li>Clean reporting</li>
+            </ul>
+            <a class="link" href="businesstax.html">Learn more →</a>
+          </div>
+        </article>
+
+        <article class="serviceCard">
+          <div class="serviceCard__media">
+            <img src="assests/img/service-3.jpg" alt="Bookkeeping" />
+          </div>
+          <div class="serviceCard__body">
+            <h3>Bookkeeping</h3>
+            <p>Monthly reconciliations and reports that are tidy, consistent, and useful.</p>
+            <ul>
+              <li>Monthly close</li>
+              <li>P&amp;L + Balance sheet</li>
+              <li>Audit-ready books</li>
+            </ul>
+            <a class="link" href="bookkeeping.html">Learn more →</a>
+          </div>
+        </article>
+
+        <article class="serviceCard">
+          <div class="serviceCard__media">
+            <img src="assests/img/service-4.jpg" alt="Payroll" />
+          </div>
+          <div class="serviceCard__body">
+            <h3>Payroll</h3>
+            <p>Accurate payroll processing with structured compliance-friendly support.</p>
+            <ul>
+              <li>Monthly payroll runs</li>
+              <li>Employee support</li>
+              <li>On-time delivery</li>
+            </ul>
+            <a class="link" href="payroll.html">Learn more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section section--soft" id="about">
+    <div class="container twoCol">
+      <div class="aboutMedia">
+        <img src="assests/img/about.jpg" alt="Professional finance review" />
+        <div class="aboutBadge">
+          <div class="aboutBadge__top">★ 4.9/5</div>
+          <div class="aboutBadge__sub">Client rating</div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="title">Where financial success takes flight</h2>
+        <p class="muted">
+          We help individuals and businesses build strong financial habits, stay compliant,
+          and make better decisions with accurate reporting.
+        </p>
+
+        <div class="bullets">
+          <div class="bullet">
+            <div class="bullet__icon">✓</div>
+            <div>
+              <div class="bullet__title">Trusted financial partners</div>
+              <div class="bullet__desc">Practical advice that’s transparent and consistent.</div>
+            </div>
+          </div>
+
+          <div class="bullet">
+            <div class="bullet__icon">✓</div>
+            <div>
+              <div class="bullet__title">Reliable &amp; efficient</div>
+              <div class="bullet__desc">Streamlined process built for speed and accuracy.</div>
+            </div>
+          </div>
+
+          <div class="bullet">
+            <div class="bullet__icon">✓</div>
+            <div>
+              <div class="bullet__title">Personalized support</div>
+              <div class="bullet__desc">Tailored solutions for your needs and goals.</div>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn--primary" href="#contact">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2 class="title">A premium 3-step process</h2>
+          <p class="muted">Simple, predictable, and easy for clients.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <h3>Discovery Call</h3>
+          <p>We understand your goals and recommend the best plan.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <h3>Secure Document Upload</h3>
+          <p>Clear checklists and simple document sharing.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <h3>Reporting &amp; Support</h3>
+          <p>Clean reports + reminders so you’re always prepared.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section section--soft" id="testimonials">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2 class="title">Clients love the clarity</h2>
+          <p class="muted">Short, high-trust reviews improve conversion.</p>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <article class="quote">
+          <div class="quote__stars">★★★★★</div>
+          <p>“Super organized and explained everything clearly. Filing was stress-free.”</p>
+          <div class="quote__name">— Client A</div>
+        </article>
+        <article class="quote">
+          <div class="quote__stars">★★★★★</div>
+          <p>“Bookkeeping is finally clean. Monthly reports helped us control expenses.”</p>
+          <div class="quote__name">— Client B</div>
+        </article>
+        <article class="quote">
+          <div class="quote__stars">★★★★★</div>
+          <p>“Quick replies and professional handling. Ideal for small business owners.”</p>
+          <div class="quote__name">— Client C</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2 class="title">FAQ</h2>
+          <p class="muted">Answer common questions to reduce hesitation.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accItem" type="button">
+          <span>Do you offer free consultations?</span>
+          <span class="accIcon">+</span>
+        </button>
+        <div class="accPanel">
+          <p>Yes. We start with a short call to understand your needs and recommend the best path.</p>
+        </div>
+
+        <button class="accItem" type="button">
+          <span>How do you handle documents?</span>
+          <span class="accIcon">+</span>
+        </button>
+        <div class="accPanel">
+          <p>We follow a secure document workflow with clear checklists and consistent updates.</p>
+        </div>
+
+        <button class="accItem" type="button">
+          <span>Can you support clients remotely?</span>
+          <span class="accIcon">+</span>
+        </button>
+        <div class="accPanel">
+          <p>Yes. Many services can be delivered remotely. We confirm details during the consultation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA / CONTACT ================= -->
+  <section class="cta" id="contact">
+    <div class="container cta__inner">
+      <div>
+        <h2 class="title title--light">Ready to elevate your finances?</h2>
+        <p class="muted muted--light">Book a call and we’ll recommend the cleanest path forward.</p>
+      </div>
+
+      <div class="ctaCard">
+        <form class="form" id="contactForm">
+          <div class="grid2">
+            <div class="field">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="tel" placeholder="+1 ..." required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" required>
+          </div>
+
+          <div class="field">
+            <label>Message</label>
+            <textarea rows="4" placeholder="Tell us what you need (tax, bookkeeping, payroll...)" required></textarea>
+          </div>
+
+          <button class="btn btn--primary btn--full" type="submit">Schedule an appointment</button>
+
+          <div class="footNote">
+            Or email <a href="mailto:Tax@nashath.us">Tax@nashath.us</a> • Call
+            <a href="tel:+19144134870">+1 (914) 413 4870</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<!-- ================= FOOTER ================= -->
+  <footer class="pFooter" id="footer">
+    <div class="container pFooter__inner">
+
+      <div class="pFooter__brand">
+  <a href="index.html" class="pFooter__logoWrap">
+    <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping Logo" class="pFooter__logo">
+  </a>
+</div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">Quick Links</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        
+      </div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">What We Do</div>
+        <a href="individual.html">Individual Tax</a>
+        <a href="businesstax.html">Business Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="payroll.html">Payroll</a>
+        <a href="businessformation.html">Business Formation</a>
+      </div>
+
+      <div class="pFooter__contact">
+        <div class="pFooter__card">
+          <div class="pFooter__cardTitle">Get In Touch</div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="tel:+19144134870">+1 (914) 413 4870</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <span>Dallas, TX • Remote-friendly</span>
+          </div>
+
+          <a class="pFooter__cta" href="#contact">Free Consultation</a>
+          <div class="pFooter__note">Reply within business hours (9AM–6PM)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container pFooter__bottom">
+      <span>© 2025 Nash Tax &amp; Bookkeeping. All rights reserved.</span>
+      <a class="pFooter__top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="assests/js/main.js"></script>
+  <script src="assests/js/navbar.js"></script>
+
+</body>
+
+
+</html>

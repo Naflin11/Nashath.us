@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us — Nash</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Shared CSS (same on ALL pages) -->
+  <link rel="stylesheet" href="assests/css/style.css" />
+  <link rel="stylesheet" href="assests/css/navbar.css" />
+
+  <style>
+    :root{
+      --font-nav: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-display: "Playfair Display", serif;
+
+      --bg:#ffffff;
+      --text:#0b1220;
+      --muted:#6b7280;
+
+      --gold:#b08d2f;
+      --gold2:#d8b556;
+
+      --border: rgba(15,23,42,.12);
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.10);
+
+      --r16:16px;
+      --r22:22px;
+      --max: 1200px;
+
+      --navH: 82px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--font-body); }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    /* ✅ Navbar always visible */
+    #navbarMount{
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+    body{ padding-top: var(--navH); }
+
+    /* ===== Hero (same style) ===== */
+    .hero{
+      position: relative;
+      min-height: 320px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:#0b1220;
+    }
+    .hero__bg{
+      position:absolute;
+      inset:0;
+      background: url("assets/img/contact-hero.jpg") center/cover no-repeat;
+      transform: scale(1.03);
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 380px at 20% 30%, rgba(0,0,0,.25), rgba(0,0,0,.75)),
+        linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.35));
+    }
+    .hero__inner{
+      position: relative;
+      z-index:2;
+      padding: 64px 0;
+      text-align:center;
+      color:#fff;
+    }
+    .hero__title{
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      font-size: clamp(34px, 4vw, 56px);
+    }
+    .crumbs{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.88);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .crumbs a{ color: rgba(255,255,255,.92); }
+    .crumbs .sep{ opacity:.7; }
+
+    /* ===== Page section ===== */
+    .page{
+      padding: 70px 0;
+      background:#fff;
+    }
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 28px;
+      align-items:start;
+    }
+
+    /* LEFT form block */
+    .formCard{
+      padding: 28px;
+    }
+    .formTitle{
+      font-family: var(--font-display);
+      font-size: clamp(34px, 3.2vw, 50px);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .formSub{
+      margin: 0 0 22px;
+      color: rgba(15,23,42,.72);
+      font-weight: 600;
+    }
+
+    .fieldGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 18px;
+      margin-top: 18px;
+    }
+
+    .field label{
+      display:block;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: rgba(15,23,42,.85);
+    }
+
+    .input{
+      width:100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1px solid rgba(15,23,42,.16);
+      border-radius: 10px;
+      background: #e5e7eb;
+      outline: none;
+      font: inherit;
+    }
+    .input:focus{
+      background:#fff;
+      border-color: rgba(176,141,47,.55);
+      box-shadow: 0 0 0 4px rgba(176,141,47,.14);
+    }
+
+    .msgWrap{ grid-column: 1 / -1; }
+    .textarea{
+      width:100%;
+      min-height: 180px;
+      padding: 12px 14px;
+      border: 1px solid rgba(15,23,42,.16);
+      border-radius: 10px;
+      background: #e5e7eb;
+      outline: none;
+      font: inherit;
+      resize: vertical;
+    }
+    .textarea:focus{
+      background:#fff;
+      border-color: rgba(176,141,47,.55);
+      box-shadow: 0 0 0 4px rgba(176,141,47,.14);
+    }
+
+    .sendRow{
+      margin-top: 18px;
+    }
+    .sendBtn{
+      height: 44px;
+      padding: 0 30px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      color:#fff;
+      background: linear-gradient(135deg,var(--gold),var(--gold2));
+      box-shadow: 0 18px 55px rgba(176,141,47,.22);
+      transition: transform .18s ease;
+    }
+    .sendBtn:hover{ transform: translateY(-2px); }
+
+    /* RIGHT info block */
+    .infoCol{
+      padding-left: 6px;
+    }
+    .infoStack{
+      display:grid;
+      gap: 22px;
+      padding-top: 12px;
+    }
+    .infoRow{
+      display:flex;
+      gap: 16px;
+      align-items:flex-start;
+    }
+    .infoIcon{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(176,141,47,.14);
+      border: 1px solid rgba(176,141,47,.22);
+      flex: 0 0 auto;
+    }
+    .infoRow h4{
+      margin: 0;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .infoRow p{
+      margin: 6px 0 0;
+      font-weight: 700;
+      color: rgba(15,23,42,.78);
+    }
+
+    .divider{
+      height: 2px;
+      background: rgba(176,141,47,.55);
+      width: 100%;
+      margin: 6px 0 10px;
+      opacity: .55;
+    }
+
+    .followTitle{
+      font-size: 28px;
+      font-weight: 900;
+      margin: 0;
+    }
+    .social{
+      display:flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .social a{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(176,141,47,.14);
+      border: 1px solid rgba(176,141,47,.22);
+      font-weight: 900;
+    }
+
+    /* ✅ Responsive */
+    @media (max-width: 980px){
+      .contactGrid{ grid-template-columns: 1fr; }
+      .fieldGrid{ grid-template-columns: 1fr; }
+      .infoCol{ padding-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navbar injected here -->
+  <div id="navbarMount"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__inner">
+        <h1 class="hero__title">Contact Us</h1>
+        <div class="crumbs">
+          <a href="index.html">Home</a>
+          <span class="sep">›</span>
+          <span>Contact Us</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="page">
+    <div class="container">
+      <div class="contactGrid">
+
+        <!-- LEFT: FORM -->
+        <div class="formCard">
+          <h2 class="formTitle">Get In Touch</h2>
+          <p class="formSub">Your financial goals are just a message away. Let’s start the conversation today.</p>
+
+          <form action="#" method="post">
+            <div class="fieldGrid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input class="input" id="name" name="name" type="text" placeholder="Name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" placeholder="Email" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input class="input" id="phone" name="phone" type="text" placeholder="Phone">
+              </div>
+
+              <div class="field">
+                <label for="address">Address</label>
+                <input class="input" id="address" name="address" type="text" placeholder="Address">
+              </div>
+
+              <div class="field msgWrap">
+                <label for="message">Message</label>
+                <textarea class="textarea" id="message" name="message" placeholder="Message"></textarea>
+              </div>
+            </div>
+
+            <div class="sendRow">
+              <button class="sendBtn" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT: CONTACT INFO -->
+        <aside class="infoCol">
+          <div class="infoStack">
+
+            <div class="infoRow">
+              <div class="infoIcon">📞</div>
+              <div>
+                <h4>Call Us</h4>
+                <p>+1 914 413 4870</p>
+              </div>
+            </div>
+
+            <div class="infoRow">
+              <div class="infoIcon">✉️</div>
+              <div>
+                <h4>Email Us</h4>
+                <p>Tax@nashath.us</p>
+              </div>
+            </div>
+
+            <div class="infoRow">
+              <div class="infoIcon">📍</div>
+              <div>
+                <h4>Our Office</h4>
+                <p>Dallas, TX</p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div>
+              <h4 class="followTitle">Follow Us:</h4>
+              <div class="social" aria-label="Social links">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">ig</a>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="pFooter" id="footer">
+    <div class="container pFooter__inner">
+
+      <div class="pFooter__brand">
+  <a href="index.html" class="pFooter__logoWrap">
+    <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping Logo" class="pFooter__logo">
+  </a>
+</div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">Quick Links</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        
+      </div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">What We Do</div>
+        <a href="individual.html">Individual Tax</a>
+        <a href="businesstax.html">Business Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="payroll.html">Payroll</a>
+        <a href="businessformation.html">Business Formation</a>
+      </div>
+
+      <div class="pFooter__contact">
+        <div class="pFooter__card">
+          <div class="pFooter__cardTitle">Get In Touch</div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="tel:+19144134870">+1 (914) 413 4870</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <span>Dallas, TX • Remote-friendly</span>
+          </div>
+
+          <a class="pFooter__cta" href="contact.html">Free Consultation</a>
+          <div class="pFooter__note">Reply within business hours (9AM–6PM)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container pFooter__bottom">
+      <span>© 2025 Nash Tax &amp; Bookkeeping. All rights reserved.</span>
+      <a class="pFooter__top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ✅ Navbar loader -->
+  <script src="assests/js/navbar.js" defer></script>
+
+</body>
+</html>

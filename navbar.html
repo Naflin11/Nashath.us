@@ -1,0 +1,68 @@
+<header class="navbar" id="navBar">
+  <div class="container">
+    <div class="navRow">
+      <a class="brand" href="index.html">
+  <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping" class="navLogo">
+</a>
+
+      <nav class="navLinks" aria-label="Primary">
+        <div class="navItem"><a href="index.html">Home</a></div>
+        <div class="navItem"><a href="about.html">About Us</a></div>
+
+        <!-- Services: click goes to services.html, hover shows dropdown -->
+        <div class="navItem hasDrop">
+          <a href="service.html" class="dropTrigger">
+            Services <span class="chev" aria-hidden="true"></span>
+          </a>
+
+          <div class="dropdown" role="menu" aria-label="Services menu">
+            <a href="individual.html">Individual Tax</a>
+            <a href="businesstax.html">Business Tax</a>
+            <a href="bookkeeping.html">Bookkeeping</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="business-formation.html">Business Formation</a>
+          </div>
+        </div>
+
+        <div class="navItem"><a href="contact.html">Contact Us</a></div>
+      </nav>
+
+      <a class="navCta" href="contact.html">Talk With Us</a>
+
+      <button class="navToggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile panel -->
+    <div class="mobilePanel" id="navMobile">
+      <div class="mobileCard">
+        <a class="mLink" href="index.html">Home</a>
+        <a class="mLink" href="about.html">About Us</a>
+
+        <!-- Mobile: direct link -->
+        <a class="mLink" href="service.html">Services</a>
+
+        <!-- Mobile: dropdown to jump to sections -->
+        <button class="mDropBtn" id="mDropBtn" aria-expanded="false">
+          More Services <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="mDropPanel" id="mDropPanel">
+          <a href="individual.html">Individual Tax</a>
+          <a href="businesstax.html">Business Tax</a>
+          <a href="bookkeeping.html">Bookkeeping</a>
+          <a href="payroll.html">Payroll</a>
+          <a href="services.html#formation">Business Formation</a>
+        </div>
+
+        <a class="mLink" href="contact.html">Contact Us</a>
+        <a class="mLink" href="contact.html" style="background:rgba(176,141,47,.12); border-radius:14px;">
+          Talk With Us
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+

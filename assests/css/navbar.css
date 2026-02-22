@@ -1,0 +1,361 @@
+/* ===== Navbar Fonts (same everywhere) ===== */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root{
+  --font-nav: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-display: "Playfair Display", serif;
+
+  --text:#0b1220;
+  --gold:#b08d2f;
+  --gold2:#d8b556;
+  --shadowSoft: 0 14px 38px rgba(2, 6, 23, 0.10);
+  --max: 1200px;
+}
+
+/* shared container */
+.container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+/* ===== Make navbar ALWAYS visible ===== */
+body{ padding-top: 78px; } /* adjust if navbar height changes */
+
+header.navbar{
+  position: fixed;   /* IMPORTANT: fixed, not sticky */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(15,23,42,.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: box-shadow .25s ease, background .25s ease;
+}
+
+header.navbar.is-scrolled{
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 20px 60px rgba(15,23,42,.10);
+}
+
+.navRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding: 14px 0;
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px;
+  min-width: 220px;
+}
+
+.brandMark{
+  width:46px;height:46px;
+  border-radius:16px;
+  display:grid; place-items:center;
+  font-weight:900; color:#fff;
+  background: linear-gradient(135deg,var(--gold),var(--gold2));
+  box-shadow: 0 18px 55px rgba(176,141,47,.22);
+}
+
+.brandText strong{ display:block; font-weight:800; letter-spacing:-0.02em; line-height:1.1; }
+.brandText small{ display:block; margin-top:2px; color: rgba(15,23,42,.60); font-weight:600; font-size:12px; }
+
+/* desktop nav */
+nav.navLinks{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  margin-left:auto;
+  margin-right: 10px;
+
+  font-family: var(--font-nav);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 500;
+  color: rgba(15,23,42,.80);
+}
+
+.navItem{ position:relative; }
+
+.navItem > a,
+.navItem > button{
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 10px 8px;
+  border-radius: 12px;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.navItem > a:hover,
+.navItem > button:hover{
+  background: rgba(15,23,42,.05);
+  color: rgba(15,23,42,.95);
+  transform: translateY(-1px);
+}
+
+.chev{
+  width:10px;height:10px;
+  display:inline-block;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top:-2px;
+  opacity:.8;
+}
+
+/* dropdown */
+.dropdown{
+  position:absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 260px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 16px;
+  box-shadow: var(--shadowSoft);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px;
+  display:none;
+}
+
+.dropdown a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  font-family: var(--font-body);
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:700;
+  color: rgba(15,23,42,.82);
+  transition: background .18s ease, transform .18s ease;
+}
+
+.dropdown a:hover{
+  background: rgba(176,141,47,.10);
+  transform: translateX(2px);
+}
+
+.dropdown small{ color: rgba(15,23,42,.55); font-weight:600; font-size:12px; }
+
+@media (min-width: 981px){
+  .navItem.hasDrop:hover .dropdown{ display:block; }
+}
+
+/* CTA */
+.navCta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor:pointer;
+  font-weight: 800;
+  color:#fff;
+  background: linear-gradient(135deg,var(--gold),var(--gold2));
+  box-shadow: 0 18px 55px rgba(176,141,47,.22);
+  transition: transform .18s ease, box-shadow .18s ease;
+  white-space: nowrap;
+}
+.navCta:hover{ transform: translateY(-2px); box-shadow: 0 26px 70px rgba(176,141,47,.28); }
+
+/* mobile */
+.navToggle{
+  display:none;
+  width:44px; height:44px;
+  border-radius:14px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.72);
+  cursor:pointer;
+}
+.navToggle span{
+  display:block;
+  width:20px;
+  height:2px;
+  background: rgba(15,23,42,.85);
+  margin: 5px auto;
+  border-radius:999px;
+}
+
+.mobilePanel{ display:none; padding: 12px 0 16px; }
+.mobileCard{
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.92);
+  border-radius: 18px;
+  box-shadow: var(--shadowSoft);
+  padding: 10px;
+}
+
+.mLink, .mDropBtn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 12px;
+  border-radius: 14px;
+  font-weight: 800;
+  color: rgba(15,23,42,.85);
+  background: transparent;
+  border: none;
+  cursor:pointer;
+
+  font-family: var(--font-nav);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.mLink:hover, .mDropBtn:hover{ background: rgba(15,23,42,.05); }
+
+.mDropPanel{ display:none; padding: 6px 6px 10px; }
+.mDropPanel a{
+  display:block;
+  padding: 10px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: rgba(15,23,42,.78);
+  font-family: var(--font-body);
+}
+.mDropPanel a:hover{ background: rgba(176,141,47,.10); }
+
+.mLinkCta{ background: rgba(176,141,47,.12); }
+
+.mobilePanel.isOpen{ display:block; }
+.mDropPanel.isOpen{ display:block; }
+
+@media (max-width: 980px){
+  nav.navLinks{ display:none; }
+  .navToggle{ display:block; }
+  .navCta{ display:none; }
+}
+/* Make sure dropdown positioning works */
+.navItem.hasDrop { position: relative; }
+
+/* Hide by default */
+.navItem.hasDrop .dropdown { display: none; }
+
+/* ✅ Keep open when hovering the WHOLE navItem (trigger + dropdown) */
+.navItem.hasDrop:hover .dropdown { display: block; }
+
+/* Optional: smoother hover gap (so it doesn't close in the small gap) */
+.navItem.hasDrop .dropdown{
+  top: calc(100% + 8px);
+}
+
+/* ✅ Add invisible hover "bridge" so moving mouse doesn't break hover */
+.navItem.hasDrop .dropdown::before{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:-10px;
+  height:10px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+/* LOGO IMAGE */
+.navLogo{
+  height:56px;
+  width:auto;
+  object-fit:contain;
+}
+
+/* make navbar height match logo */
+.navbar{
+  padding:14px 0;
+}
+
+.navLogo{
+  height:58px;
+  filter: brightness(1.1);
+}
+
+@media (max-width:768px){
+  .navLogo{
+    height:46px;
+  }
+}
+.brand{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+/* REMOVE ANY BACKGROUND */
+.brand img{
+  background:none !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+.navLogo{
+  height:100px;
+  width:auto;
+  object-fit:contain;
+  mix-blend-mode:multiply;
+}
+
+/* NAVBAR HEIGHT */
+.navbar{
+  padding:6px 0;              /* makes navbar thin */
+  background:#fff;
+}
+
+/* NAV ROW */
+.navRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:60px;                /* controls navbar height */
+}
+
+/* LOGO SIZE */
+.navLogo{
+  height:62px;               /* 🔥 adjust between 36–50 */
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
+
+/* REMOVE EXTRA SPACE AROUND LOGO */
+.brand{
+  display:flex;
+  align-items:center;
+  padding:0;
+  margin:0;
+  line-height:0;
+}
+
+/* NAV LINKS */
+.navLinks a{
+  font-size:14px;
+  letter-spacing:1px;
+}
+
+/* CTA BUTTON */
+.navCta{
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:14px;
+}
