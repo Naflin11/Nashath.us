@@ -1690,3 +1690,38 @@ button,
 .pFooter__col a:hover::before{
   transform: translateX(4px);
 }
+
+.privacyPage{
+  background:#fff;
+  padding:80px 20px;
+  font-family:'Poppins', sans-serif;
+}
+
+.privacyContainer{
+  max-width:900px;
+  margin:auto;
+}
+
+.privacyContainer h1{
+  font-size:42px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.lastUpdated{
+  color:#888;
+  margin-bottom:40px;
+}
+
+.privacyContainer h2{
+  font-size:22px;
+  font-weight:700;
+  margin-top:40px;
+  margin-bottom:10px;
+}
+
+.privacyContainer p{
+  font-size:16px;
+  line-height:1.7;
+  color:#333;
+}

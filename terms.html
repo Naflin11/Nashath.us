@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Nash Tax & Bookkeeping</title>
+
+  <!-- Fonts (Elegant + Premium like your examples) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Your global site CSS -->
+  <link rel="stylesheet" href="assests/css/style.css">
+  <link rel="stylesheet" href="assests/css/navbar.css">
+
+  <!-- Page CSS -->
+  <style>
+    :root{
+      --gold:#b08d2f;
+      --gold2:#d8b556;
+      --ink:#0b1220;
+      --muted: rgba(15,23,42,.72);
+      --card:#ffffff;
+      --line: rgba(15,23,42,.10);
+      --shadow: 0 18px 55px rgba(2, 6, 23, 0.10);
+
+      --font-display: "Playfair Display", serif;
+      --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:var(--font-body);color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
+
+    /* HERO like your Contact banner */
+    .pageHero{
+      position:relative;
+      min-height: 320px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:#0b1220;
+    }
+    .pageHero__bg{
+      position:absolute;
+      inset:0;
+      background: url("assests/img/aa.jpg") center/cover no-repeat;
+      transform: scale(1.04);
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .pageHero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 380px at 20% 30%, rgba(0,0,0,.25), rgba(0,0,0,.75)),
+        linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.30));
+    }
+    .pageHero__inner{
+      position:relative;
+      z-index:2;
+      padding: 70px 0;
+      text-align:center;
+      color:#fff;
+    }
+    .pageHero__title{
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      font-size: clamp(38px, 4vw, 64px);
+    }
+    .crumbs{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.86);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .crumbs a{color: rgba(255,255,255,.95);}
+    .crumbs .sep{opacity:.7}
+
+    /* Page layout */
+    .policyWrap{
+      padding: 70px 0 90px;
+      background:
+        radial-gradient(900px 320px at 12% 15%, rgba(176,141,47,.10), transparent 60%),
+        radial-gradient(900px 320px at 90% 20%, rgba(216,181,86,.10), transparent 60%),
+        #fff;
+    }
+
+    .policyHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .policyHead h2{
+      margin:0;
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: clamp(24px, 2.6vw, 38px);
+    }
+    .policyHead p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 500;
+      max-width: 720px;
+    }
+
+    .badgeRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(176,141,47,.10);
+      border: 1px solid rgba(176,141,47,.22);
+      color: rgba(15,23,42,.85);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .badgeDot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg,var(--gold),var(--gold2));
+      box-shadow: 0 8px 18px rgba(176,141,47,.25);
+    }
+
+    /* Accordion cards (your "popup boxes") */
+    .accGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .accItem{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .accBtn{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 18px 18px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      text-align:left;
+    }
+
+    .accLeft{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .accIcon{
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(176,141,47,.18), rgba(216,181,86,.10));
+      border: 1px solid rgba(176,141,47,.22);
+      color: var(--gold);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .accTitle{
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      margin:0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .accMeta{
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(15,23,42,.55);
+    }
+
+    .accChevron{
+      width: 42px; height: 42px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.85);
+      color: rgba(15,23,42,.75);
+      transition: transform .18s ease;
+      flex: 0 0 auto;
+    }
+
+    .accPanel{
+      display:none;
+      padding: 0 18px 18px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 500;
+    }
+
+    .accItem.isOpen .accPanel{display:block;}
+    .accItem.isOpen .accChevron{transform: rotate(180deg);}
+
+    .accPanel ul{
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .accPanel li{margin: 6px 0;}
+    .goldLink{color: rgba(176,141,47,.95); font-weight: 800;}
+    .noteBox{
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px dashed rgba(176,141,47,.35);
+      background: rgba(176,141,47,.06);
+      color: rgba(15,23,42,.78);
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    /* Two-column bottom strip */
+    .policyBottom{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+    .miniCard{
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .miniCard h3{
+      margin:0 0 8px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .miniCard p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 500;
+    }
+    .contactLine{
+      display:flex;
+      gap:10px;
+      margin-top: 10px;
+      font-weight: 700;
+      color: rgba(15,23,42,.78);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#fff;
+      font-weight: 900;
+      box-shadow: 0 18px 55px rgba(176,141,47,.22);
+      margin-top: 12px;
+      width: fit-content;
+    }
+
+    @media (max-width: 900px){
+      .policyBottom{grid-template-columns: 1fr;}
+      .accTitle{white-space: normal;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar mount -->
+  <div id="navbarMount"></div>
+  <script src="assests/js/navbar.js"></script>
+
+  <!-- HERO -->
+  <section class="pageHero">
+    <div class="pageHero__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="pageHero__inner">
+        <h1 class="pageHero__title">Privacy Policy</h1>
+        <div class="crumbs">
+          <a href="index.html">Home</a>
+          <span class="sep">›</span>
+          <span>Privacy Policy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="policyWrap">
+    <div class="container">
+
+      <div class="policyHead">
+        <div>
+          <h2>Your privacy matters to us.</h2>
+          <p>
+            This Privacy Policy explains what information we collect, how we use it, and how cookies/Google Ads may be used on this website.
+          </p>
+
+          <div class="badgeRow">
+            <span class="badge"><span class="badgeDot"></span> Updated: <strong style="margin-left:4px;">2026</strong></span>
+            <span class="badge"><span class="badgeDot"></span> Applies to: Website & Contact Forms</span>
+            <span class="badge"><span class="badgeDot"></span> Ads: Google Ads / Analytics Cookies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Cards -->
+      <div class="accGrid" id="policyAccordion">
+
+        <div class="accItem isOpen">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">1</div>
+              <div>
+                <div class="accTitle">Information We Collect</div>
+                <div class="accMeta">Personal details you submit</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            We may collect personal information such as your name, email address, phone number, and any information you submit through our contact forms.
+            <ul>
+              <li>Contact form submissions</li>
+              <li>Basic website usage data (cookies/analytics)</li>
+              <li>Device/browser information (for security + performance)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">2</div>
+              <div>
+                <div class="accTitle">How We Use Your Information</div>
+                <div class="accMeta">Service + communication only</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            Your information is used to respond to inquiries, provide services, and improve website experience. We do not sell your personal information.
+            <ul>
+              <li>Reply to your questions & requests</li>
+              <li>Provide tax/bookkeeping services (when applicable)</li>
+              <li>Improve performance, security, and usability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">3</div>
+              <div>
+                <div class="accTitle">Cookies & Tracking</div>
+                <div class="accMeta">Better experience + measurement</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            Our website may use cookies and similar technologies to enhance user experience and for advertising/analytics purposes.
+            <ul>
+              <li>Remember preferences</li>
+              <li>Measure traffic and interactions</li>
+              <li>Support advertising measurement and delivery</li>
+            </ul>
+            <div class="noteBox">
+              You can control cookies in your browser settings. Disabling cookies may affect some website features.
+            </div>
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">4</div>
+              <div>
+                <div class="accTitle">Google Advertising (Google Ads)</div>
+                <div class="accMeta">Ads, remarketing, and reporting</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            We may use Google Ads and Google Analytics, which can collect data through cookies. Google may use this data to show relevant ads and provide reporting.
+            <ul>
+              <li>Google may use cookies to serve ads based on prior visits.</li>
+              <li>We may use conversion tracking and/or remarketing.</li>
+              <li>You can opt out of personalized advertising via Google Ad Settings.</li>
+            </ul>
+            <p style="margin-top:10px;">
+              Manage Google ad personalization via <span class="goldLink">Google Ad Settings</span> (search “Google Ad Settings”).
+            </p>
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">5</div>
+              <div>
+                <div class="accTitle">Data Protection</div>
+                <div class="accMeta">Reasonable security measures</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            We implement reasonable security measures to protect your personal data. No method of transmission or storage is 100% secure, but we work to protect your information.
+            <ul>
+              <li>Access controls</li>
+              <li>Secure handling of form submissions</li>
+              <li>Monitoring for abuse/attacks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            <div class="accLeft">
+              <div class="accIcon">6</div>
+              <div>
+                <div class="accTitle">Contact Us</div>
+                <div class="accMeta">Questions about this policy</div>
+              </div>
+            </div>
+            <div class="accChevron">⌄</div>
+          </button>
+          <div class="accPanel">
+            If you have questions about this Privacy Policy, contact us:
+            <ul>
+              <li>Email: <a class="goldLink" href="mailto:tax@nashath.us">tax@nashath.us</a></li>
+              <li>Phone: <a class="goldLink" href="tel:+19144134870">+1 914 413 4870</a></li>
+              <li>Location: Dallas, TX</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom mini strip -->
+      <div class="policyBottom">
+        <div class="miniCard">
+          <h3>Your choices</h3>
+          <p>
+            You can disable cookies in your browser, and manage ad personalization in Google settings.
+            If you use an ad blocker or restrict cookies, some features may not work as expected.
+          </p>
+        </div>
+
+        <div class="miniCard">
+          <h3>Need help?</h3>
+          <p>We’ll respond as soon as possible during business hours.</p>
+          <div class="contactLine">Email: <a class="goldLink" href="mailto:tax@nashath.us">tax@nashath.us</a></div>
+          <div class="contactLine">Phone: <a class="goldLink" href="tel:+19144134870">+1 914 413 4870</a></div>
+          <a class="pill" href="contact.html">Talk With Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer mount -->
+    <footer class="pFooter" id="footer">
+    <div class="container pFooter__inner">
+
+      <div class="pFooter__brand">
+  <a href="index.html" class="pFooter__logoWrap">
+    <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping Logo" class="pFooter__logo">
+  </a>
+</div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">Quick Links</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        
+      </div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">What We Do</div>
+        <a href="individual.html">Individual Tax</a>
+        <a href="businesstax.html">Business Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="payroll.html">Payroll</a>
+        <a href="businessformation.html">Business Formation</a>
+      </div>
+
+      <div class="pFooter__contact">
+        <div class="pFooter__card">
+          <div class="pFooter__cardTitle">Get In Touch</div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="tel:+19144134870">+1 (914) 413 4870</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <span>Dallas, TX • Remote-friendly</span>
+          </div>
+
+          <a class="pFooter__cta" href="contact.html">Free Consultation</a>
+          <div class="pFooter__note">Reply within business hours (9AM–6PM)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container pFooter__bottom">
+      <span>© 2025 Nash Tax &amp; Bookkeeping. All rights reserved.</span>
+      <a class="pFooter__top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="assests/css/footer.css" />
+  <script src="assests/js/footer.js" defer></script>
+
+  <!-- Accordion JS -->
+  <script>
+    (function () {
+      const root = document.getElementById("policyAccordion");
+      if (!root) return;
+
+      root.addEventListener("click", (e) => {
+        const btn = e.target.closest(".accBtn");
+        if (!btn) return;
+
+        const item = btn.closest(".accItem");
+        if (!item) return;
+
+        // toggle
+        item.classList.toggle("isOpen");
+      });
+    })();
+  </script>
+</body>
+</html>
