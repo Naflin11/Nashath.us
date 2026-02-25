@@ -359,3 +359,40 @@ nav.navLinks{
   border-radius:999px;
   font-size:14px;
 }
+/* =========================
+   MOBILE FOOTER LAYOUT FIX
+   ========================= */
+
+@media (max-width: 900px){
+
+  /* center logo */
+  .pFooter__brand{
+    grid-column: 1 / -1;
+    justify-content: center !important;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* 2 column layout for links */
+  .pFooter__inner{
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px;
+  }
+
+  /* quick links left */
+  .pFooter__col:nth-child(2){
+    grid-column: 1;
+  }
+
+  /* what we do right */
+  .pFooter__col:nth-child(3){
+    grid-column: 2;
+  }
+
+  /* contact full width below */
+  .pFooter__contact{
+    grid-column: 1 / -1;
+    margin-top: 20px;
+  }
+
+}

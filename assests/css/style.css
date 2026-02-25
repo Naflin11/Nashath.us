@@ -1725,3 +1725,95 @@ button,
   line-height:1.7;
   color:#333;
 }
+/* Agreement row - mobile safe */
+.agreeRow{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.agreeRow input[type="checkbox"]{
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+.agreeRow label{
+  flex: 1 1 auto;
+  min-width: 0;                /* IMPORTANT: allows wrapping inside flex */
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(15,23,42,.72);
+  word-break: break-word;
+  overflow-wrap: anywhere;     /* ensures no text goes outside */
+}
+@media (max-width: 480px){
+  .agreeRow label{ font-size: 12px; }
+}
+/* =========================
+   HERO MOBILE FIX (boxes/icons going out)
+   ========================= */
+@media (max-width: 980px){
+
+  /* make right side centered */
+  .eventHero__right{
+    justify-content: center !important;
+  }
+
+  .eventHero__circleWrap{
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* keep circle nicely centered */
+  .eventHero__circle{
+    margin: 0 auto !important;
+  }
+
+  /* ✅ FIX: badges were positioned outside on desktop */
+  .eventBadge--label{
+    left: 12px !important;
+    top: 12px !important;
+    transform: none !important;
+  }
+
+  .eventBadge--time{
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  /* ✅ FIX: social rail on right causes overflow */
+  .eventHero__socialRail{
+    position: static !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin-top: 14px !important;
+  }
+
+  .eventRailIcon{
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* ✅ FIX: dots column on the right can overflow */
+  .eventHero__dots{
+    display: none !important;
+  }
+}
+
+@media (max-width: 560px){
+  /* smaller circle */
+  .eventHero__circle{
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  /* if label still feels tight, reduce it */
+  .eventBadge{
+    font-size: 12px !important;
+  }
+
+  /* if you want to fully hide badges on very small screens */
+  /* .eventBadge{ display:none !important; } */
+}
