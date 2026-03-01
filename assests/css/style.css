@@ -1907,3 +1907,53 @@ button,
 .nav a::after{
   background: linear-gradient(90deg, var(--gold), var(--gold2)) !important;
 }
+/* Footer: logo + icons stacked */
+.pFooter__brand{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* change to center if you want */
+}
+
+.pFooter__socialIcons{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.pFooter__socialIcons a{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: rgba(255,255,255,0.80);
+  color: rgba(15,23,42,0.75);
+  transition: all .25s ease;
+}
+
+.pFooter__socialIcons a:hover{
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 18px 45px rgba(176,141,47,0.18);
+  color: var(--gold);
+}
+
+.pFooter__socialIcons i{
+  font-size: 16px;
+}
+/* ✅ CENTER footer brand column */
+.pFooter__brand{
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;   /* center horizontally */
+  text-align: center;
+}
+
+/* center the social icons row */
+.pFooter__socialIcons{
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;   /* center icons */
+  gap: 14px;
+}
