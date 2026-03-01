@@ -1446,9 +1446,11 @@ input:focus, select:focus, textarea:focus{
   .menuBtn{ display:block; }
   .mobileNav.show{ display:flex; }
 }
+/* ✅ PREMIUM GOLD OVERRIDE (removes green tint) */
 :root{
-  --gold:#c9a646;
-  --dark:#0b0f19;
+  --gold:  #b08d2f;
+  --gold2: #e2c05c;
+  --goldSoft: rgba(176,141,47,0.12);
 }
 
 /* Body */
@@ -1827,8 +1829,81 @@ button,
 
 /* ✅ Main title */
 .heroTitle {
-  line-height: 1.05;            /* more breathing room so "p" doesn't get clipped */
-  padding-bottom: 10px;         /* gives space for descenders like p, g, y */
+  line-height: 2.5;            /* more breathing room so "p" doesn't get clipped */
+  padding-bottom: 20px;         /* gives space for descenders like p, g, y */
   margin-bottom: 12px;
   display: inline-block;        /* avoids weird clipping in some layouts */
+}
+/* ✅ stop clipping inside hero text area */
+.hero,
+.hero * {
+  overflow: visible;
+}
+
+/* ✅ your big title (apply to your actual h1 class) */
+.heroTitle,
+.hero h1 {
+  line-height: 1.05;
+  padding-bottom: 24px;   /* IMPORTANT: gives space for p/g/y */
+  display: inline-block;  /* prevents weird font clipping */
+}
+/* Buttons container row */
+.heroActions,
+.heroButtons,
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;          /* ✅ allows wrapping */
+  align-items: center;
+}
+
+/* Buttons */
+.heroActions a,
+.heroActions button,
+.heroButtons a,
+.heroButtons button,
+.ctaRow a,
+.ctaRow button {
+  max-width: 100%;
+  white-space: nowrap;      /* keeps label on one line */
+}
+
+/* ✅ Mobile: make both buttons full width so nothing overflows */
+@media (max-width: 520px) {
+  .heroActions,
+  .heroButtons,
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions a,
+  .heroActions button,
+  .heroButtons a,
+  .heroButtons button,
+  .ctaRow a,
+  .ctaRow button {
+    width: 100%;
+    text-align: center;
+    white-space: normal;    /* allow wrap if needed */
+  }
+}
+
+/* ✅ HERO TITLE DESCENDER FIX (Easy y clipped) */
+.eventHero__headline,
+.eventHero__stack,
+.heroTitle,
+.hero h1{
+  overflow: visible !important;
+}
+
+.eventHero__stack,
+.heroTitle,
+.hero h1{
+  line-height: 1.06 !important;     /* was 0.95 -> causes clipping */
+  padding-bottom: 14px !important;  /* extra space for y/g/p */
+  display: inline-block !important;
+}
+.nav a::after{
+  background: linear-gradient(90deg, var(--gold), var(--gold2)) !important;
 }
