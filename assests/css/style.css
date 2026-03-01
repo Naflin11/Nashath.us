@@ -1817,3 +1817,18 @@ button,
   /* if you want to fully hide badges on very small screens */
   /* .eventBadge{ display:none !important; } */
 }
+/* ✅ HERO left side should NOT clip text */
+.hero,
+.heroLeft,
+.heroContent,
+.heroText {
+  overflow: visible !important;
+}
+
+/* ✅ Main title */
+.heroTitle {
+  line-height: 1.05;            /* more breathing room so "p" doesn't get clipped */
+  padding-bottom: 10px;         /* gives space for descenders like p, g, y */
+  margin-bottom: 12px;
+  display: inline-block;        /* avoids weird clipping in some layouts */
+}
