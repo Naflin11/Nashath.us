@@ -10,8 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- ✅ Shared CSS (same on ALL pages) -->
+
+  <!-- Font Awesome (ONLY ONCE) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Shared CSS -->
   <link rel="stylesheet" href="assests/css/style.css" />
   <link rel="stylesheet" href="assests/css/navbar.css" />
 
@@ -44,7 +47,7 @@
     img{ max-width:100%; display:block; }
     .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
 
-    /* ✅ Navbar always visible */
+    /* Navbar always visible */
     #navbarMount{
       position: fixed;
       top: 0; left: 0;
@@ -53,7 +56,7 @@
     }
     body{ padding-top: var(--navH); }
 
-    /* ===== Hero (same style) ===== */
+    /* Hero */
     .hero{
       position: relative;
       min-height: 320px;
@@ -103,7 +106,7 @@
     .crumbs a{ color: rgba(255,255,255,.92); }
     .crumbs .sep{ opacity:.7; }
 
-    /* ===== Page section ===== */
+    /* Page section */
     .page{
       padding: 70px 0;
       background:#fff;
@@ -116,10 +119,8 @@
       align-items:start;
     }
 
-    /* LEFT form block */
-    .formCard{
-      padding: 28px;
-    }
+    /* LEFT form */
+    .formCard{ padding: 28px; }
     .formTitle{
       font-family: var(--font-display);
       font-size: clamp(34px, 3.2vw, 50px);
@@ -181,9 +182,7 @@
       box-shadow: 0 0 0 4px rgba(176,141,47,.14);
     }
 
-    .sendRow{
-      margin-top: 18px;
-    }
+    .sendRow{ margin-top: 18px; display:flex; align-items:center; gap:12px; }
     .sendBtn{
       height: 44px;
       padding: 0 30px;
@@ -197,42 +196,27 @@
       transition: transform .18s ease;
     }
     .sendBtn:hover{ transform: translateY(-2px); }
+    .sendBtn:disabled{ opacity:.65; cursor:not-allowed; transform:none; }
 
-    /* RIGHT info block */
-    .infoCol{
-      padding-left: 6px;
+    .formStatus{
+      font-weight: 800;
+      color: rgba(15,23,42,.75);
+      font-size: 14px;
     }
-    .infoStack{
-      display:grid;
-      gap: 22px;
-      padding-top: 12px;
-    }
-    .infoRow{
-      display:flex;
-      gap: 16px;
-      align-items:flex-start;
-    }
+
+    /* RIGHT info */
+    .infoCol{ padding-left: 6px; }
+    .infoStack{ display:grid; gap: 22px; padding-top: 12px; }
+    .infoRow{ display:flex; gap: 16px; align-items:flex-start; }
     .infoIcon{
-      width: 52px;
-      height: 52px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
+      width: 52px; height: 52px; border-radius: 999px;
+      display:grid; place-items:center;
       background: rgba(176,141,47,.14);
       border: 1px solid rgba(176,141,47,.22);
       flex: 0 0 auto;
     }
-    .infoRow h4{
-      margin: 0;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -0.01em;
-    }
-    .infoRow p{
-      margin: 6px 0 0;
-      font-weight: 700;
-      color: rgba(15,23,42,.78);
-    }
+    .infoRow h4{ margin: 0; font-size: 28px; font-weight: 900; letter-spacing: -0.01em; }
+    .infoRow p{ margin: 6px 0 0; font-weight: 700; color: rgba(15,23,42,.78); }
 
     .divider{
       height: 2px;
@@ -242,28 +226,16 @@
       opacity: .55;
     }
 
-    .followTitle{
-      font-size: 28px;
-      font-weight: 900;
-      margin: 0;
-    }
-    .social{
-      display:flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .followTitle{ font-size: 28px; font-weight: 900; margin: 0; }
+    .social{ display:flex; gap: 10px; margin-top: 10px; }
     .social a{
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
+      width: 40px; height: 40px; border-radius: 999px;
+      display:grid; place-items:center;
       background: rgba(176,141,47,.14);
       border: 1px solid rgba(176,141,47,.22);
       font-weight: 900;
     }
 
-    /* ✅ Responsive */
     @media (max-width: 980px){
       .contactGrid{ grid-template-columns: 1fr; }
       .fieldGrid{ grid-template-columns: 1fr; }
@@ -274,7 +246,7 @@
 
 <body>
 
-  <!-- ✅ Navbar injected here -->
+  <!-- Navbar injected -->
   <div id="navbarMount"></div>
 
   <!-- HERO -->
@@ -302,7 +274,7 @@
           <h2 class="formTitle">Get In Touch</h2>
           <p class="formSub">Your financial goals are just a message away. Let’s start the conversation today.</p>
 
-          <form action="#" method="post">
+          <form id="contactForm" novalidate>
             <div class="fieldGrid">
               <div class="field">
                 <label for="name">Name</label>
@@ -326,17 +298,18 @@
 
               <div class="field msgWrap">
                 <label for="message">Message</label>
-                <textarea class="textarea" id="message" name="message" placeholder="Message"></textarea>
+                <textarea class="textarea" id="message" name="message" placeholder="Message" required></textarea>
               </div>
             </div>
 
             <div class="sendRow">
-              <button class="sendBtn" type="submit">Send</button>
+              <button class="sendBtn" id="sendBtn" type="submit">Send</button>
+              <span class="formStatus" id="formStatus"></span>
             </div>
           </form>
         </div>
 
-        <!-- RIGHT: CONTACT INFO -->
+        <!-- RIGHT: INFO -->
         <aside class="infoCol">
           <div class="infoStack">
 
@@ -369,23 +342,17 @@
             <div>
               <h4 class="followTitle">Follow Us:</h4>
               <div class="social" aria-label="Social links">
-                <a href="https://www.instagram.com/nashath_tax?igsh=MWk3NzR4aDB4OWI2bA%3D%3D&utm_source=qr"
-           target="_blank" rel="noopener"
-           aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
+                <a href="https://www.instagram.com/nashath_tax?igsh=MWk3NzR4aDB4OWI2bA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
 
-        <a href="https://www.facebook.com/profile.php?id=61588369831428&mibextid=wwXIfr&rdid=trMZPBTIOBIsiyRk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19s48ntWQj%2F%3Fmibextid%3DwwXIfr#"
-           target="_blank" rel="noopener"
-           aria-label="Facebook">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
+                <a href="https://www.facebook.com/profile.php?id=61588369831428&mibextid=wwXIfr&rdid=trMZPBTIOBIsiyRk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19s48ntWQj%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
 
-        <a href="https://wa.me/19144134870?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20tax%20services."
-           target="_blank" rel="noopener"
-           aria-label="WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
+                <a href="https://wa.me/19144134870?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20tax%20services." target="_blank" rel="noopener" aria-label="WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
               </div>
             </div>
 
@@ -395,91 +362,86 @@
       </div>
     </div>
   </section>
-  <!-- ================= FOOTER ================= -->
-  <!-- ================= FOOTER ================= -->
-<footer class="pFooter" id="footer">
-  <div class="container pFooter__inner">
 
-    <!-- Brand / Logo + Social (icons BELOW logo) -->
-    <div class="pFooter__brand">
-      <a href="index.html" class="pFooter__logoWrap">
-        <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping Logo" class="pFooter__logo">
-      </a>
+  <!-- FOOTER (unchanged from your file) -->
+  <footer class="pFooter" id="footer">
+    <div class="container pFooter__inner">
 
-      <div class="pFooter__socialIcons" aria-label="Social media links">
-        <a href="https://www.instagram.com/nashath_tax?igsh=MWk3NzR4aDB4OWI2bA%3D%3D&utm_source=qr"
-           target="_blank" rel="noopener"
-           aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
+      <div class="pFooter__brand">
+        <a href="index.html" class="pFooter__logoWrap">
+          <img src="assests/img/llogo.png" alt="Nash Tax & Bookkeeping Logo" class="pFooter__logo">
         </a>
 
-        <a href="https://www.facebook.com/profile.php?id=61588369831428&mibextid=wwXIfr&rdid=trMZPBTIOBIsiyRk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19s48ntWQj%2F%3Fmibextid%3DwwXIfr#"
-           target="_blank" rel="noopener"
-           aria-label="Facebook">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-
-        <a href="https://wa.me/19144134870?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20tax%20services."
-           target="_blank" rel="noopener"
-           aria-label="WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
+        <div class="pFooter__socialIcons" aria-label="Social media links">
+          <a href="https://www.instagram.com/nashath_tax?igsh=MWk3NzR4aDB4OWI2bA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61588369831428&mibextid=wwXIfr&rdid=trMZPBTIOBIsiyRk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19s48ntWQj%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/19144134870?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20tax%20services." target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="pFooter__col">
-      <div class="pFooter__title">Quick Links</div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="service.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="terms.html">Privacy Policy</a>
-    </div>
-
-    <div class="pFooter__col">
-      <div class="pFooter__title">What We Do</div>
-      <a href="individual.html">Individual Tax</a>
-      <a href="businesstax.html">Business Tax</a>
-      <a href="bookkeeping.html">Bookkeeping</a>
-      <a href="payroll.html">Payroll</a>
-      <a href="businessformation.html">Business Formation</a>
-    </div>
-
-    <div class="pFooter__contact">
-      <div class="pFooter__card">
-        <div class="pFooter__cardTitle">Get In Touch</div>
-
-        <div class="pFooter__item">
-          <span class="pFooter__dot"></span>
-          <a href="tel:+19144134870">+1 (914) 413 4870</a>
-        </div>
-
-        <div class="pFooter__item">
-          <span class="pFooter__dot"></span>
-          <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
-        </div>
-
-        <div class="pFooter__item">
-          <span class="pFooter__dot"></span>
-          <span>Dallas, TX • Remote-friendly</span>
-        </div>
-
-        <a class="pFooter__cta" href="contact.html">Free Consultation</a>
-        <div class="pFooter__note">Reply within business hours (9AM–6PM)</div>
+      <div class="pFooter__col">
+        <div class="pFooter__title">Quick Links</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Privacy Policy</a>
       </div>
+
+      <div class="pFooter__col">
+        <div class="pFooter__title">What We Do</div>
+        <a href="individual.html">Individual Tax</a>
+        <a href="businesstax.html">Business Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="payroll.html">Payroll</a>
+        <a href="businessformation.html">Business Formation</a>
+      </div>
+
+      <div class="pFooter__contact">
+        <div class="pFooter__card">
+          <div class="pFooter__cardTitle">Get In Touch</div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="tel:+19144134870">+1 (914) 413 4870</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <a href="mailto:Tax@nashath.us">Tax@nashath.us</a>
+          </div>
+
+          <div class="pFooter__item">
+            <span class="pFooter__dot"></span>
+            <span>Dallas, TX • Remote-friendly</span>
+          </div>
+
+          <a class="pFooter__cta" href="contact.html">Free Consultation</a>
+          <div class="pFooter__note">Reply within business hours (9AM–6PM)</div>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-  <div class="container pFooter__bottom">
-    <span>© 2025 Nash Tax &amp; Bookkeeping. All rights reserved.</span>
-    <a class="pFooter__top" href="#top">Back to top ↑</a>
-  </div>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
-</footer>
+    <div class="container pFooter__bottom">
+      <span>© 2025 Nash Tax &amp; Bookkeeping. All rights reserved.</span>
+      <a class="pFooter__top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 
-
-  <!-- ✅ Navbar loader -->
+  <!-- Navbar loader -->
   <script src="assests/js/navbar.js" defer></script>
 
+  <!-- EmailJS (ONLY ONCE) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Contact form handler (ONLY ONCE) -->
+  <script src="assests/js/contact-email.js" defer></script>
 </body>
 </html>
