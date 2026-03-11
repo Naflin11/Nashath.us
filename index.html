@@ -26,44 +26,80 @@
 <body id="top">
 
   <!-- ================= CHAT WIDGET ================= -->
-  <div class="chatWidget" id="chatWidget" aria-live="polite">
-    <button class="chatFab" id="chatFab" aria-label="Open chat">💬</button>
+ <!-- Chatbot Start -->
+<button id="chatbotButton" aria-label="Open chat">💬</button>
 
-    <div class="chatBox" id="chatBox" role="dialog" aria-label="Chat support">
-      <div class="chatHeader">
-        <div class="chatHeader__title">
-          <div class="chatHeader__dot"></div>
-          <div>
-            <div class="chatHeader__name">Nash Support</div>
-            <div class="chatHeader__sub">Typically replies within minutes</div>
-          </div>
-        </div>
-        <button class="chatClose" id="chatClose" aria-label="Close chat">✕</button>
-      </div>
+<div id="chatbotWindow" aria-label="Chat window">
+  <div class="chat-header">
+    <div class="chat-header-text">
+      <div class="chat-title">Nash Tax Assistant</div>
+      <div class="chat-subtitle">We’re here to help</div>
+    </div>
+    <button id="chatClose" class="chat-close" aria-label="Close chat">&times;</button>
+  </div>
 
-      <div class="chatBody" id="chatBody">
-        <div class="msg msg--bot">
-          Hi! 👋 How can we help today?
-          <div class="chips">
-            <button class="chip" data-chip="Bookkeeping">Bookkeeping</button>
-            <button class="chip" data-chip="Tax Filing">Tax Filing</button>
-            <button class="chip" data-chip="Pricing">Pricing</button>
-          </div>
-        </div>
-      </div>
+  <div id="chatMessages" class="chat-body">
+    <div class="chat-disclaimer">
+      General information only. For case-specific tax or legal advice, please contact Nash Tax &amp; Bookkeeping directly.
+    </div>
 
-      <form class="chatForm" id="chatForm">
-        <input
-          class="chatInput"
-          id="chatInput"
-          type="text"
-          placeholder="Type your message..."
-          autocomplete="off"
-        />
-        <button class="chatSend" type="submit">Send</button>
-      </form>
+    <div class="quick-questions">
+      <button
+        class="quick-btn"
+        data-question="What bookkeeping services do you offer?"
+      >
+        Bookkeeping
+      </button>
+
+      <button
+        class="quick-btn"
+        data-question="Can you help with tax filing services?"
+      >
+        Tax Filing
+      </button>
+
+      <button
+        class="quick-btn"
+        data-question="Do you provide payroll support for businesses?"
+      >
+        Payroll
+      </button>
+
+      <button
+        class="quick-btn"
+        data-question="Can you help with business registration and setup?"
+      >
+        Business Setup
+      </button>
+
+      <button
+        class="quick-btn"
+        data-question="How can I contact your team to schedule a consultation?"
+      >
+        Contact Team
+      </button>
     </div>
   </div>
+
+  <div class="chat-footer">
+    <div class="chat-input-wrap">
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask a question..."
+        autocomplete="off"
+      />
+      <button id="chatSend">Send</button>
+    </div>
+    <div class="chat-footer-note">
+      Powered by AI • White &amp; Gold Assistant
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="assests/css/chatbot.css" />
+<script src="assests/js/chatbot.js"></script>
+<!-- Chatbot End -->
 
   <!-- ================= TOP STRIP ================= -->
 
@@ -492,7 +528,7 @@
   <!-- ================= SCRIPTS ================= -->
   <script src="assests/js/main.js"></script>
   <script src="assests/js/navbar.js"></script>
-
+  <script src="assets/js/chatbot.js"></script>
 </body>
 
 
