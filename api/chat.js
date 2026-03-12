@@ -32,21 +32,11 @@ module.exports = async function handler(req, res) {
           content: `
 You are the website assistant for Nash Tax & Bookkeeping.
 
-Your job:
-- Help visitors with bookkeeping, payroll, tax filing, business registration, and consultation-related questions.
+- Help visitors with bookkeeping, payroll, tax filing, business registration, and consultation questions.
 - Be professional, friendly, and concise.
-- Give general business information only.
+- Give general information only.
 - Do not provide final legal or tax advice.
-- For complex or case-specific issues, tell the user to contact Nash Tax & Bookkeeping directly.
-- Encourage users to book a consultation when appropriate.
-
-Business tone:
-- Warm
-- Professional
-- Clear
-- Trustworthy
-
-Keep answers short and website-friendly.
+- For case-specific matters, ask the user to contact Nash Tax & Bookkeeping directly.
           `.trim(),
         },
         {
@@ -56,10 +46,9 @@ Keep answers short and website-friendly.
       ],
     });
 
-    const reply =
-      response.output_text || "Sorry, I couldn't generate a response right now.";
-
-    return res.status(200).json({ reply });
+    return res.status(200).json({
+      reply: response.output_text || "Sorry, I couldn't generate a response right now.",
+    });
   } catch (error) {
     console.error("Chat API error:", error);
     return res.status(500).json({
