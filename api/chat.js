@@ -1,15 +1,23 @@
-import OpenAI from "openai";
+const OpenAI = require("openai");
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+module.exports = async function handler(req, res) {
+  if (req.method === "GET") {
+    return res.status(200).json({ status: "ok", message: "Chat API is live" });
+  }
 
-export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ error: "OPENAI_API_KEY is missing in Vercel." });
+    }
+
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
     const { message } = req.body || {};
 
     if (!message || !message.trim()) {
@@ -55,7 +63,7 @@ Keep answers short and website-friendly.
   } catch (error) {
     console.error("Chat API error:", error);
     return res.status(500).json({
-      error: "Something went wrong while processing your request.",
+      error: error.message || "Something went wrong while processing your request.",
     });
   }
-}
+};
