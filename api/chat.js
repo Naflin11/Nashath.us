@@ -45,7 +45,7 @@ Other:
 
 Contact:
 - Phone: +1 (914) 413 4870
-- Email: Tax@nashath.us
+- Email: tax@nashtaxes.com
 - Location: Dallas, TX
 - Hours: 9AM–6PM
 `;
